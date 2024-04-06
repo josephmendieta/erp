@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graficas por Barrio y Mes</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body style="padding-bottom: 20px;">
+    <div class="container">
+        <h2 class="mt-4">Gráficas Ventas por Barrio y Mes</h2>
+
+        <div class="mt-4">
+            {{ grafico_pastel|safe }}
+        </div>
+
+        <hr>
+
+        <div class="mt-4">
+            {{ grafico_area|safe }}
+        </div>
+
+        <a href="http://localhost:3001/controlVentas/" class="btn btn-primary mt-4">Regresar a informe</a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Ventas</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f5f5;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-4">Informe de Ventas</h2>
+
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Nombre Tienda</th>
+                    <th>Barrio Tienda</th>
+                    <th>Número de Localidad</th>
+                    <th>Total</th>
+                    <th>Recibido</th>
+                    <th>Cambio</th>
+                    <th>Cantidad de Artículos</th>
+                    <th>Fecha</th>
+                    <th>Nombre Vendedor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in ventas %}
+                <tr>
+                    <td>{{item.nombreTienda}}</td>
+                    <td>{{item.barrioTienda}}</td>
+                    <td>{{item.numLocalidad}}</td>
+                    <td>{{item.total}}</td>
+                    <td>{{item.recibido}}</td>
+                    <td>{{item.cambio}}</td>
+                    <td>{{item.articulosVendidos}}</td>
+                    <td>{{item.fechaVenta}}</td>
+                    <td>{{item.nombreVendedor}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <div class="row">
+            <div class="col">
+                <!-- Botón para ingresar nuevas ventas -->
+                <button id="ingresarVentas" class="btn btn-primary btn-block">Ingresar nuevas ventas</button>
+            </div>
+            <div class="col">
+                <!-- Botón para ver gráficas de ventas -->
+                <button id="verGraficas" class="btn btn-primary btn-block">Ver gráficas de Ventas</button>
+            </div>
+            <div class="col">
+                <!-- Botón para ver gráficas por barrio y mes -->
+                <button id="graficasBarrioMes" class="btn btn-primary btn-block">Gráficas por barrio y mes</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Al hacer clic en el botón, redireccionar a la página de gráficas
+            $('#verGraficas').click(function() {
+                window.location.href = 'http://localhost:3001/graficasVentas/';
+            });
+        });
+
+        $(document).ready(function() {
+        // Al hacer clic en el botón, redireccionar a la página de ingreso de ventas
+        $('#ingresarVentas').click(function() {
+            window.location.href = 'http://localhost:3001/zona_segura/';
+        });
+
+        // Al hacer clic en el botón, redireccionar a la página de gráficas por barrio y mes
+        $('#graficasBarrioMes').click(function() {
+            window.location.href = 'http://localhost:3001/graficasBarrioMes/';
+        });
+    });
+    </script>
+</body>
+</html>
